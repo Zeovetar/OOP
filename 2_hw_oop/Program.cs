@@ -1,4 +1,5 @@
 ﻿using System;
+using Bank1;
 
 namespace _2_hw_oop
 {
@@ -52,56 +53,20 @@ namespace _2_hw_oop
 
         }
     }
-    enum AccountType { own, bussiness, vip };
-    public class BankAccount
-    {
-        private int accountNumber;
-        private int balance;
-        private AccountType type;
-        public BankAccount(int accountNumber, int balance, AccountType type)
-        {
-            this.accountNumber = accountNumber;
-            this.balance = balance;
-            this.type = type;
-        }
-        public int AccountNumber
-        {
-            get
-            {
-                return this.accountNumber;
-            }
+    //public enum AccountType { own, bussiness, vip };
 
-            set
-            {
-                this.accountNumber = value;
-            }
-
-        }
-
-        public int Balance
-        {
-            get
-            {
-                return this.balance;
-            }
-
-            set
-            {
-                this.balance = value;
-            }
-
-        }
-
-        //public AccountType Type { get; set; }
-    }
     class Program
     {
         static void Main(string[] args)
         {
             AccountType accountType = AccountType.own;
             Console.WriteLine(accountType);
-            BancAccount bank = new ("123EF4D", 120_000, AccountType.bussiness);
-            Console.WriteLine(bank);
+            Bank1.BankAccount1 bank = new (1, 120_000, AccountType.bussiness);
+            bank.GetInfo();
+            Console.WriteLine(bank.AccountNumber);
+            Console.WriteLine(bank.Balance);
+            Console.WriteLine(bank.Type);
+            //Console.WriteLine(bank);
             /*            Car lada = new Car("Lada", 2002);
                         Car yac = new("Yac", 1881);
                         Car lifan = new("lifan");
