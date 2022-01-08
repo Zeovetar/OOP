@@ -1,6 +1,7 @@
 ﻿using System;
 using Bank1;
 using Bank2;
+using Bank3;
 
 namespace _2_hw_oop
 {
@@ -21,6 +22,14 @@ namespace _2_hw_oop
             bank3.GetInfo();
             bank4.GetInfo();
             bank5.GetInfo();
+
+            Console.WriteLine("========================================Example_3========================================");
+            Bank3.BankAccount3 bank6 = new(220000);
+            bank6.GetInfo();
+            Bank3.BankAccount3 bank7 = new(Bank3.AccountType.bussiness);
+            bank7.GetInfo();
+            Bank3.BankAccount3 bank8 = new(2300000, Bank3.AccountType.vip);
+            bank8.GetInfo();
         }
     }
 }
