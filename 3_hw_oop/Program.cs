@@ -1,5 +1,6 @@
 ﻿using System;
 using Bank;
+using StringWorks;
 
 namespace _2_hw_oop
 {
@@ -7,27 +8,27 @@ namespace _2_hw_oop
     {
         static void Main(string[] args)
         {
-            Bank.BankAccount bank1 = new(1, 120000, Bank1.AccountType.bussiness);
-            Bank.BankAccount bank2 = new(2, 1200000, Bank1.AccountType.vip);
             Console.WriteLine("========================================Example_1========================================");
-            bank1.GetInfo();
+            Bank.BankAccount bank = new(100, Bank.AccountType.vip);
+            bank.GetInfo();
+            Bank.BankAccount bank2 = new(1000, Bank.AccountType.vip);
+            bank2.GetInfo();
+            bank.GetMoney(bank2, 200);
+            bank.GetInfo();
             bank2.GetInfo();
 
             Console.WriteLine("========================================Example_2========================================");
-            Bank2.BankAccount2 bank3 = new(220000, Bank2.AccountType.bussiness);
-            Bank2.BankAccount2 bank4 = new(2200000, Bank2.AccountType.vip);
-            Bank2.BankAccount2 bank5 = new(2300000, Bank2.AccountType.own);
-            bank3.GetInfo();
-            bank4.GetInfo();
-            bank5.GetInfo();
+            string testString = "От топота копыт пыль по полю летит!";
+            Strings str = new();
+            Console.WriteLine($"Оригинальная строка: {testString}");
+            Console.WriteLine($"Результирующая строка: {str.ConvertString(testString)}");
 
-            Console.WriteLine("========================================Example_3========================================");
-            Bank3.BankAccount3 bank6 = new(220000);
-            bank6.GetInfo();
-            Bank3.BankAccount3 bank7 = new(Bank3.AccountType.bussiness);
-            bank7.GetInfo();
-            Bank3.BankAccount3 bank8 = new(2300000, Bank3.AccountType.vip);
-            bank8.GetInfo();
+            Console.WriteLine("========================================Example_2_test========================================");
+            Strings firstTest = new();
+            Tests test = new();
+            var x = (firstTest.ConvertString((test.str1)) == test.str2) ? "Well done!" : "Does not work!";
+            Console.WriteLine(x);
+
         }
     }
 }

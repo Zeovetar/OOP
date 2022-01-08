@@ -10,6 +10,19 @@ namespace Bank
         private AccountType type;
         private static int newnumber;
 
+        public void GetMoney(BankAccount bank, int sum)
+        {
+            if (bank.balance - sum > 0)
+            {
+                bank.balance = bank.balance - sum;
+                this.balance += sum;
+            }
+            else 
+            {
+                Console.WriteLine("Недостаточно средств!");
+            }
+        }
+
         public int inc(ref int num)
         {
             return ++num;
