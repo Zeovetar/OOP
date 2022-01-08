@@ -15,7 +15,13 @@ namespace StringWorks
 
     public class Tests
     {
-        public string str1 = "Пушка";
-        public string str2 = "акшуП";
+        public string str1;
+        public string str2;
+        public Tests(string str1, string str2)
+        {
+            this.str1 = str1;
+            this.str2 = str2;
+        }
+
     }
 }

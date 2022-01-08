@@ -23,11 +23,15 @@ namespace _2_hw_oop
             Console.WriteLine($"Оригинальная строка: {testString}");
             Console.WriteLine($"Результирующая строка: {str.ConvertString(testString)}");
 
-            Console.WriteLine("========================================Example_2_test========================================");
+            Console.WriteLine("========================================Example_2_tests========================================");
             Strings firstTest = new();
-            Tests test = new();
-            var x = (firstTest.ConvertString((test.str1)) == test.str2) ? "Well done!" : "Does not work!";
-            Console.WriteLine(x);
+            Tests test1 = new("Пушка", "акшуП");
+            var x = (firstTest.ConvertString((test1.str1)) == test1.str2) ? "Well done!" : "Does not work!";
+            Console.WriteLine(x);  //Well done!
+
+            Tests test2 = new("Пушка", "акшуп");
+            x = (firstTest.ConvertString((test2.str1)) == test2.str2) ? "Well done!" : "Does not work!";
+            Console.WriteLine(x);  //Does not work!
 
         }
     }
