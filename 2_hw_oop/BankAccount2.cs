@@ -10,10 +10,14 @@ namespace Bank2
         private AccountType type;
         private static int newnumber;
 
+        public int inc(ref int num)
+        {
+            return ++num;
+        }
+
         public BankAccount2(int balance, AccountType type)
         {
-            newnumber++;
-            accountNumber = newnumber;
+            accountNumber = inc(ref newnumber);
             this.balance = balance;
             this.type = type;
         }

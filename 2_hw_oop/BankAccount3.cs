@@ -10,24 +10,26 @@ namespace Bank3
         private AccountType type;
         private static int newnumber;
 
+        public int inc(ref int num)
+        {
+            return ++num; 
+        }
+
         public BankAccount3(int balance)
         {
-            newnumber++;
-            accountNumber = newnumber;
+            accountNumber = inc(ref newnumber);//newnumber;
             this.balance = balance;
         }
 
         public BankAccount3(AccountType type)
         {
-            newnumber++;
-            accountNumber = newnumber;
+            accountNumber = inc(ref newnumber);//newnumber;
             this.type = type;
         }
 
         public BankAccount3(int balance, AccountType type)
         {
-            newnumber++;
-            accountNumber = newnumber;
+            accountNumber = inc(ref newnumber);//newnumber;
             this.balance = balance;
             this.type = type;
         }
