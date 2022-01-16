@@ -68,14 +68,19 @@ namespace RationalNumbers
 			return true;
 		}
 
-		public static bool Equals(object obj)
+		public bool Equals(Numbers fraction)
 		{
-			return true;
+			nok(this, fraction);
+			if (this == fraction)
+			{
+				return true;
+			}
+			return false;
 		}
 
-		public static bool GetHashCode()
+		public override int GetHashCode()
 		{
-			return true;
+			return 1;
 		}
 	}
 }
