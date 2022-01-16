@@ -16,6 +16,11 @@ namespace RationalNumbers
 			this.denumerator = denumerator;
 		}
 
+		public Numbers(Numbers clone)
+		{
+			this.numerator = clone.numerator;
+			this.denumerator = clone.denumerator;
+		}
 		public static void nod(Numbers fraction1, Numbers fraction2)
 		{
 			for (int i = 2; i < 10; i++)
@@ -43,9 +48,11 @@ namespace RationalNumbers
 
 		public static bool operator ==(Numbers fraction1, Numbers fraction2)
 		{
+			Numbers fraction_1 = new(fraction1);
+			Numbers fraction_2 = new(fraction2);
 			//nod(fraction1, fraction2);
-			nok(fraction1, fraction2);
-			if (fraction1.numerator / fraction2.numerator == 1 && fraction1.denumerator / fraction2.denumerator == 1)
+			nok(fraction_1, fraction_2);
+			if (fraction_1.numerator / fraction_2.numerator == 1 && fraction_1.denumerator / fraction_2.denumerator == 1)
 			{
 				return true;
 			}
