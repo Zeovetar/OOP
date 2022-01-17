@@ -40,10 +40,13 @@ namespace RationalNumbers
 		{
 			int nok1 = fraction1.denumerator;
 			int nok2 = fraction2.denumerator;
-			fraction1.numerator = fraction1.numerator * nok2;
-			fraction1.denumerator = fraction1.denumerator * nok2;
-			fraction2.numerator = fraction2.numerator * nok1;
-			fraction2.denumerator = fraction2.denumerator * nok1;
+			if (nok1 != nok2)
+			{
+				fraction1.numerator = fraction1.numerator * nok2;
+				fraction1.denumerator = fraction1.denumerator * nok2;
+				fraction2.numerator = fraction2.numerator * nok1;
+				fraction2.denumerator = fraction2.denumerator * nok1;
+			}
 		}
 
 		public static bool operator ==(Numbers fraction1, Numbers fraction2)
@@ -52,7 +55,7 @@ namespace RationalNumbers
 			Numbers fraction_2 = new(fraction2);
 			//nod(fraction1, fraction2);
 			nok(fraction_1, fraction_2);
-			if (fraction_1.numerator / fraction_2.numerator == 1 && fraction_1.denumerator / fraction_2.denumerator == 1)
+			if (fraction_1.numerator / fraction_2.numerator == 1 && fraction_1.numerator % fraction_2.numerator == 0)
 			{
 				return true;
 			}
@@ -81,6 +84,78 @@ namespace RationalNumbers
 		public override int GetHashCode()
 		{
 			return 1;
+		}
+
+        public static Numbers operator +(Numbers fraction1, Numbers fraction2)
+        {
+            nok(fraction1, fraction2);
+            Numbers ans = new(0, 1);
+            ans.numerator = fraction1.numerator + fraction2.numerator;
+            ans.denumerator = fraction1.denumerator;
+            return ans;
+        }
+
+		public static Numbers operator -(Numbers fraction1, Numbers fraction2)
+		{
+			nok(fraction1, fraction2);
+			Numbers ans = new(0, 1);
+			ans.numerator = fraction1.numerator - fraction2.numerator;
+			ans.denumerator = fraction1.denumerator;
+			return ans;
+		}
+
+		public static Numbers operator ++(Numbers fraction)
+		{
+			fraction.numerator = fraction.numerator + fraction.denumerator;
+			return fraction;
+		}
+
+		public static Numbers operator --(Numbers fraction)
+		{
+			fraction.numerator = fraction.numerator - fraction.denumerator;
+			return fraction;
+		}
+
+		public static bool operator <(Numbers fraction1, Numbers fraction2)
+		{
+			nok(fraction1, fraction2);
+			if (fraction1.numerator % fraction2.numerator > 0 && fraction1.numerator % fraction2.numerator < 1)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public static bool operator >(Numbers fraction1, Numbers fraction2)
+		{
+			nok(fraction1, fraction2);
+			if (fraction1.numerator % fraction2.numerator > 0 && fraction1.numerator % fraction2.numerator < 1)
+			{
+				return false;
+			}
+			return true;
+		}
+
+		public static bool operator <=(Numbers fraction1, Numbers fraction2)
+		{
+			nok(fraction1, fraction2);
+			if ((fraction1.numerator % fraction2.numerator > 0 && fraction1.numerator % fraction2.numerator < 1) ||
+				(fraction1.numerator % fraction2.numerator == 0 && fraction1.numerator / fraction2.numerator == 1))
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public static bool operator >=(Numbers fraction1, Numbers fraction2)
+		{
+			nok(fraction1, fraction2);
+			if ((fraction1.numerator % fraction2.numerator > 0 && fraction1.numerator % fraction2.numerator < 1) || 
+				(fraction1.numerator % fraction2.numerator == 0 && fraction1.numerator / fraction2.numerator == 1))
+			{
+				return false;
+			}
+			return true;
 		}
 	}
 }
