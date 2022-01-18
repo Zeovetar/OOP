@@ -153,9 +153,16 @@ namespace RationalNumbers
 			if ((fraction1.numerator % fraction2.numerator > 0 && fraction1.numerator % fraction2.numerator < 1) || 
 				(fraction1.numerator % fraction2.numerator == 0 && fraction1.numerator / fraction2.numerator == 1))
 			{
-				return false;
+				return true;
 			}
-			return true;
+			return false;
+		}
+
+		public override string ToString(Numbers fraction)
+		{
+			string outString = $"{fraction.numerator}.{fraction.denumerator}";
+			Console.WriteLine("Hi there!", outString);
+			return outString;
 		}
 	}
 }

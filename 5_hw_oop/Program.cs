@@ -29,20 +29,22 @@ namespace _5_hw_oop
             //====================================================================================================
             Numbers sum = new(0, 1);
             sum = num + num2;
-            Console.WriteLine($"Summa: {sum.Numerator} {sum.Denumerator}");
+            Console.WriteLine($"Sum: num {num.Numerator}/{num.Denumerator} | num2 {num2.Numerator}/{num2.Denumerator} {sum.Numerator}/{sum.Denumerator}");
             //====================================================================================================
             num++;
             num2--;
             Console.WriteLine($"++: {num.Numerator}/{num.Denumerator}");
             Console.WriteLine($"--: {num2.Numerator}/{num2.Denumerator}");
             //====================================================================================================
-            Console.WriteLine($"<?: {num < num2}");
-            Console.WriteLine($"Ю?: {num > num2}");
+            Console.WriteLine($"<?: num {num.Numerator}/{num.Denumerator} | num2 {num2.Numerator}/{num2.Denumerator} {num < num2}");
+            Console.WriteLine($">?: num {num.Numerator}/{num.Denumerator} | num2 {num2.Numerator}/{num2.Denumerator} {num > num2}");
             //====================================================================================================
             Numbers num3 = new(1, 2);
             Numbers num4 = new(2, 4);
-            Console.WriteLine($"<=?: {num3 < num4}");
-            Console.WriteLine($">=?: {num3 > num4}");
+            Console.WriteLine($"<=?: num {num3.Numerator}/{num3.Denumerator} | num2 {num4.Numerator}/{num4.Denumerator} {num3 <= num4}");
+            Console.WriteLine($">=?: num {num3.Numerator}/{num3.Denumerator} | num2 {num4.Numerator}/{num4.Denumerator} {num3 >= num4}");
+            //====================================================================================================
+            Console.WriteLine($"{num4.ToString()}");
         }
     }
 }
